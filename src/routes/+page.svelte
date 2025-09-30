@@ -5,6 +5,7 @@
 
 	let scannedCode = 'No code scanned yet.';
 	let liffInitialized = false;
+
 	onMount(() => {
 		liffInitialization();
 	});
@@ -51,4 +52,5 @@
 	<button on:click={scanQRCode} class="btn-hover w-full rounded-lg bg-red-300">
 		Scan QR Code
 	</button>
+	<p>{scannedCode}</p>
 </div>
