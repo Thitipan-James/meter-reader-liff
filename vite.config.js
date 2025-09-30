@@ -4,10 +4,10 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
 	plugins: [tailwindcss(), sveltekit()],
-	server: {
-		host: '192.168.3.230',
-		port: 5172
-	}
+	// server: {
+	// 	host: '192.168.3.230',
+	// 	port: 5172
+	// }
 	// server: {
 	// 	// 👇 Allow your ngrok URL
 	// 	allowedHosts: ['0ce0888e723a.ngrok-free.app'],
