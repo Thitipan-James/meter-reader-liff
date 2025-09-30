@@ -1,8 +1,4 @@
 {
-	"routes": [
-		{
-			"src": "/(.*)/?$",
-			"dest": "/$1.html"
-		}
-	]
+	"framework": "sveltekit",
+	"buildCommand": "npm run build"
 }

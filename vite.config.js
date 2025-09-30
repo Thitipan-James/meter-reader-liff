@@ -10,6 +10,10 @@ export default defineConfig({
 	},
 	define: {
 		'import.meta.env.VITE_LIFF_ID': JSON.stringify(process.env.VITE_LIFF_ID)
+	},
+	build: {
+		target: 'esnext',
+		minify: 'esbuild'
 	}
 	// server: {
 	// 	// 👇 Allow your ngrok URL
