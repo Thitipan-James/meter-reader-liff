@@ -47,7 +47,7 @@
 </script>
 
 <div>
-	<p>Hello</p>
+	<p>Hell o</p>
 	<button on:click={scanQRCode} class="btn-hover w-full rounded-lg bg-red-300">
 		Scan QR Code
 	</button>
