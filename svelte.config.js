@@ -1,16 +1,12 @@
-// svelte.config.js
 import adapter from '@sveltejs/adapter-vercel';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
 export default {
-	// define: {
-	// 	'import.meta.env.VITE_LIFF_ID': JSON.stringify(process.env.VITE_LIFF_ID)
-	// },
+	preprocess: vitePreprocess(),
 	kit: {
-		adapter: adapter() // หรือ adapter({ pages: 'build', assets: 'build' })
-		// prerender: {
-		// 	entries: ['*'], // <-- แทนที่ default
-		// 	crawl: true // ค้นหา routes อัตโนมัติ (ถ้าต้องการ)
-		// }
+		adapter: adapter({
+			runtime: 'nodejs20.x'
+		})
 	}
 };
