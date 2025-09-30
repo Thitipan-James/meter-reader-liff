@@ -7,6 +7,9 @@ export default defineConfig({
 	server: {
 		host: '192.168.3.230',
 		port: 5172
+	},
+	define: {
+		'import.meta.env.VITE_LIFF_ID': JSON.stringify(process.env.VITE_LIFF_ID)
 	}
 	// server: {
 	// 	// 👇 Allow your ngrok URL

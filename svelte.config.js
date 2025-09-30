@@ -3,9 +3,9 @@ import adapter from '@sveltejs/adapter-vercel';
 
 /** @type {import('@sveltejs/kit').Config} */
 export default {
-	define: {
-		'import.meta.env.VITE_LIFF_ID': JSON.stringify(process.env.VITE_LIFF_ID)
-	},
+	// define: {
+	// 	'import.meta.env.VITE_LIFF_ID': JSON.stringify(process.env.VITE_LIFF_ID)
+	// },
 	kit: {
 		adapter: adapter() // หรือ adapter({ pages: 'build', assets: 'build' })
 		// prerender: {
