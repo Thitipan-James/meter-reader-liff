@@ -2,9 +2,12 @@
 	import { page } from '$app/state';
 	import { onMount } from 'svelte';
 	import liff from '@line/liff';
+	import axios from 'axios';
+	import { get } from 'svelte/store';
 
 	let scannedCode = 'No code scanned yet.';
 	let liffInitialized = false;
+	let profileID = '';
 
 	onMount(() => {
 		liffInitialization();
@@ -17,33 +20,55 @@
 				liff.login();
 			} else {
 				liffInitialized = true;
+				const profile = await liff.getProfile();
+				console.log(profile);
+				profileID = profile.userId;
 			}
 		} catch (error) {
 			console.log('LIFF init error', error);
 		}
 	}
+	function checkLiffReady() {
+		if (!liffInitialized) return 'LIFF not initialized.';
+		if (!liff.isApiAvailable('scanCodeV2')) return 'QR scanner not available on this device.';
+		return null;
+	}
+
 	async function scanQRCode() {
-		if (!liffInitialized) {
-			scannedCode = 'LIFF not initialized.';
-			return;
+		const errorMessage = checkLiffReady();
+		if (errorMessage) {
+			return (scannedCode = errorMessage);
 		}
 
 		try {
-			// Check if QR scanner is available
-			if (!liff.isApiAvailable('scanCodeV2')) {
-				scannedCode = 'QR scanner not available on this device.';
-				return;
-			}
+			//const { value } = await liff.scanCodeV2();
+			//scannedCode = value;
 
-			const result = await liff.scanCodeV2();
-			scannedCode = result.value;
+			const resultofScan = await liff.scanCodeV2();
+			scannedCode = resultofScan.value;
+			const stringifiedResult = JSON.stringify(resultofScan);
+			await getresultOfScan(stringifiedResult);
 		} catch (error) {
 			console.error('Error scanning code:', error);
 			scannedCode = `Scan failed: ${error.message}`;
 		}
 	}
-	async function test() {
-		window.location.href = 'https://line.me/R/nv/QRCodeReader';
+
+	async function getresultOfScan(stringifiedResult) {
+		try {
+			const response = await axios({
+				method: 'get',
+				url: 'https://rms.ssdapp.net/meter-bot',
+				params: {
+					select: 'meter-qrscan',
+					id: stringifiedResult,
+					line_user_id: profileID
+				}
+			});
+			console.log(response.data);
+		} catch (error) {
+			console.log(error);
+		}
 	}
 </script>
 
