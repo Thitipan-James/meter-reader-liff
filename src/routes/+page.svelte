@@ -8,11 +8,13 @@
 	let scannedCode = 'No code scanned yet.';
 	let liffInitialized = false;
 	let profileID = '';
+	// const LIFF_ID = import.meta.env.VITE_LIFF_ID;
+	const LIFF_ID = '2008120165-nWm5a7vA';
 
 	onMount(() => {
 		liffInitialization();
 	});
-	const LIFF_ID = import.meta.env.VITE_LIFF_ID;
+
 	async function liffInitialization() {
 		try {
 			await liff.init({ liffId: LIFF_ID });
