@@ -229,7 +229,7 @@
 		</div>
 	{/if}
 	<button
-		on:click={getresultOfScan}
+		on:click={scanQRCode}
 		class="btn-hover mt-4 w-full rounded-lg bg-red-500 py-2 text-sm font-bold text-white shadow-md transition duration-300 ease-in-out hover:bg-red-600"
 	>
 		Scan QR Code
