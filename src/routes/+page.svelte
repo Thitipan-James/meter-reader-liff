@@ -39,11 +39,11 @@
 
 	// 2. แปลงเป็น Object
 	const meterObj = JSON.parse(jsonString);
-	console.log(meterObj.logmeter);
-	const dataEntries = Object.entries(meterObj);
-	console.log('dataEntries', dataEntries);
-	const dataEntriesTwo = Object.entries(meterObj.logmeter.datarow[0]);
-	console.log('dataEntriesTwo', dataEntriesTwo);
+	// console.log(meterObj.logmeter);
+	// const dataEntries = Object.entries(meterObj);
+	// console.log('dataEntries', dataEntries);
+	// const dataEntriesTwo = Object.entries(meterObj.logmeter.datarow[0]);
+	// console.log('dataEntriesTwo', dataEntriesTwo);
 
 	// // 3. ใช้งานตัวแปร meterObj
 	// console.log(meterObj.status); // success
@@ -138,15 +138,9 @@
 </script>
 
 <div class="container mx-auto max-w-xl p-3">
-	<button
-		on:click={getresultOfScan}
-		class="btn-hover mb-4 w-full rounded-lg bg-red-500 py-2 text-sm font-bold text-white shadow-md transition duration-300 ease-in-out hover:bg-red-600"
-	>
-		Scan QR Code
-	</button>
 	<!-- <p class="mb-3 text-center text-xs text-gray-600">{scannedCode}</p> -->
 
-	<div class="header mb-6 rounded-lg border-t-4 border-red-500 bg-white p-4 shadow-md">
+	<div class="header mb-2 rounded-lg border-t-4 border-red-500 bg-white p-4 shadow-md">
 		<h2 class="mb-3 border-b pb-2 text-xl font-extrabold text-gray-800">
 			ข้อมูลมิเตอร์ (Meter Details)
 		</h2>
@@ -242,4 +236,10 @@
 			</tbody>
 		</table>
 	</div>
+	<button
+		on:click={getresultOfScan}
+		class="btn-hover mt-4 w-full rounded-lg bg-red-500 py-2 text-sm font-bold text-white shadow-md transition duration-300 ease-in-out hover:bg-red-600"
+	>
+		Scan QR Code
+	</button>
 </div>
