@@ -5,9 +5,11 @@
 	import axios from 'axios';
 	import { get } from 'svelte/store';
 
-	let scannedCode;
+	let scannedCode = 'No code scanned yet.';
 	let liffInitialized = false;
 	let profileID = '';
+	let Hello = false;
+
 	// 1. JSON‑string ที่คุณได้รับ
 	const jsonString = `{
 		"status":"success",
@@ -92,6 +94,9 @@
 
 			const resultofScan = await liff.scanCodeV2();
 			scannedCode = resultofScan.value;
+			if (scannedCode == 15310280) {
+				Hello = true;
+			}
 			const stringifiedResult = JSON.stringify(resultofScan);
 			//await getresultOfScan(stringifiedResult);
 		} catch (error) {
@@ -128,7 +133,7 @@
 
 <div class="container mx-auto max-w-xl p-3">
 	<!-- <p class="mb-3 text-center text-xs text-gray-600">{scannedCode}</p> -->
-	{#if scannedCode}
+	{#if Hello}
 		<div class="header mb-2 rounded-lg border-t-4 border-red-500 bg-white p-4 shadow-md">
 			<h2 class="mb-3 border-b pb-2 text-xl font-extrabold text-gray-800">
 				ข้อมูลมิเตอร์ (Meter Details)
