@@ -77,12 +77,6 @@
 
 <div class="container mx-auto max-w-xl p-3">
 	<!-- <p class="mb-3 text-center text-xs text-gray-600">{scannedCode}</p> -->
-	<button
-		on:click={scanQRCode}
-		class="btn-hover mb-4 w-full rounded-lg bg-red-500 py-2 text-sm font-bold text-white shadow-md transition duration-300 ease-in-out hover:bg-red-600"
-	>
-		Scan QR Code
-	</button>
 	{#if responseQR && responseQR.logmeter && responseQR.logmeter.datarow}
 		<div class="header mb-2 rounded-lg border-t-4 border-red-500 bg-white p-4 shadow-md">
 			<h2 class="mb-3 border-b pb-2 text-xl font-extrabold text-gray-800">
@@ -232,4 +226,12 @@
 			</div>
 		</div>
 	{/if}
+	<div class="fixed bottom-0 left-0 z-50 w-full bg-white p-4 shadow-lg">
+		<button
+			on:click={scanQRCode}
+			class="btn-hover w-full rounded-lg bg-red-500 py-3 text-lg font-bold text-white shadow-md transition duration-300 ease-in-out hover:bg-red-600"
+		>
+			Scan QR Code
+		</button>
+	</div>
 </div>
