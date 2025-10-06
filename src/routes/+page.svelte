@@ -12,7 +12,7 @@
 	const LIFF_ID = import.meta.env.VITE_LIFF_ID;
 
 	onMount(() => {
-		liffInitialization();
+		//liffInitialization();
 	});
 
 	async function liffInitialization() {
@@ -129,8 +129,8 @@
 
 		---
 
-		<h3 class="mb-2 text-lg font-bold text-gray-800">ประวัติการอ่านค่า (Reading History)</h3>
-		<div class="overflow-x-auto rounded-lg shadow-md">
+		<h3 class="mb-2 text-lg font-bold text-gray-800">ประวัติการอ่านค่าย้อนหลัง 7 วัน</h3>
+		<div class="overflow-x-auto rounded-lg pb-16 shadow-md">
 			<table class="min-w-full divide-y divide-gray-200">
 				<thead class="bg-gray-50">
 					<tr>
@@ -226,7 +226,7 @@
 			</div>
 		</div>
 	{/if}
-	<div class="fixed bottom-0 left-0 z-50 w-full bg-white p-4 shadow-lg">
+	<div class="fixed right-0 bottom-0 left-0 z-50 w-full bg-white p-4 shadow-lg">
 		<button
 			on:click={scanQRCode}
 			class="btn-hover w-full rounded-lg bg-red-500 py-3 text-lg font-bold text-white shadow-md transition duration-300 ease-in-out hover:bg-red-600"
