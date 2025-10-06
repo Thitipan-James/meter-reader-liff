@@ -58,7 +58,7 @@
 	// const LIFF_ID = import.meta.env.VITE_LIFF_ID;
 
 	onMount(() => {
-		liffInitialization();
+		//liffInitialization();
 	});
 
 	async function liffInitialization() {
@@ -133,6 +133,12 @@
 
 <div class="container mx-auto max-w-xl p-3">
 	<!-- <p class="mb-3 text-center text-xs text-gray-600">{scannedCode}</p> -->
+	<button
+		on:click={scanQRCode}
+		class="btn-hover mb-4 w-full rounded-lg bg-red-500 py-2 text-sm font-bold text-white shadow-md transition duration-300 ease-in-out hover:bg-red-600"
+	>
+		Scan QR Code
+	</button>
 	{#if Hello}
 		<div class="header mb-2 rounded-lg border-t-4 border-red-500 bg-white p-4 shadow-md">
 			<h2 class="mb-3 border-b pb-2 text-xl font-extrabold text-gray-800">
@@ -232,11 +238,54 @@
 				</tbody>
 			</table>
 		</div>
+	{:else}
+		<div class="header mb-2 rounded-lg border-t-4 border-red-500 bg-white p-4 shadow-md">
+			<h2 class="mb-3 border-b pb-2 text-xl font-extrabold text-gray-800">
+				ข้อมูลมิเตอร์ (Meter Details)
+			</h2>
+
+			<div class="divide-y divide-gray-200">
+				<div class="grid grid-cols-2 bg-gray-50 py-1.5 text-xs">
+					<div class="font-bold text-gray-700">รหัสมิเตอร์ (meter_id):</div>
+					<div class="text-right text-gray-700"></div>
+				</div>
+				<div class="grid grid-cols-2 py-1.5 text-xs">
+					<div class="font-bold text-gray-700">ซีเรียลมิเตอร์ (meter_serial):</div>
+					<div class="text-right text-gray-700"></div>
+				</div>
+				<div class="grid grid-cols-2 bg-gray-50 py-1.5 text-xs">
+					<div class="font-bold text-gray-700">รหัสมิเตอร์ (meter_code):</div>
+					<div class="text-right text-gray-700"></div>
+				</div>
+				<div class="grid grid-cols-2 py-1.5 text-xs">
+					<div class="font-bold text-gray-700">อ่านล่าสุด (lastreading):</div>
+					<div class="text-right font-medium text-gray-700"></div>
+				</div>
+				<div class="grid grid-cols-2 bg-gray-50 py-1.5 text-xs">
+					<div class="font-bold text-gray-700">วันที่อ่าน (reading_date):</div>
+					<div class="text-right text-gray-700"></div>
+				</div>
+				<div class="grid grid-cols-2 py-1.5 text-xs">
+					<div class="font-bold text-gray-700">หน่วย (unitno):</div>
+					<div class="text-right text-gray-700"></div>
+				</div>
+				<div class="grid grid-cols-2 bg-gray-50 py-1.5 text-xs">
+					<div class="font-bold text-gray-700">เลขสัญญา (contract_no):</div>
+					<div class="text-right text-gray-700"></div>
+				</div>
+				<div class="grid grid-cols-2 py-1.5 text-xs">
+					<div class="font-bold text-gray-700">ชื่อลูกค้า (customer_name):</div>
+					<div class="text-right text-gray-700"></div>
+				</div>
+				<div class="grid grid-cols-2 py-1.5 text-xs">
+					<div class="font-bold text-gray-700">Bus ID:</div>
+					<div class="text-right text-gray-700"></div>
+				</div>
+				<div class="grid grid-cols-2 bg-gray-50 py-1.5 text-xs">
+					<div class="font-bold text-gray-700">ชื่อประเภทมิเตอร์ (meter_type_name):</div>
+					<div class="text-right text-gray-700"></div>
+				</div>
+			</div>
+		</div>
 	{/if}
-	<button
-		on:click={scanQRCode}
-		class="btn-hover mt-4 w-full rounded-lg bg-red-500 py-2 text-sm font-bold text-white shadow-md transition duration-300 ease-in-out hover:bg-red-600"
-	>
-		Scan QR Code
-	</button>
 </div>
