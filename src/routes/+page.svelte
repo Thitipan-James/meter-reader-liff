@@ -23,7 +23,7 @@
 			} else {
 				liffInitialized = true;
 				const profile = await liff.getProfile();
-				console.log(profile);
+				//console.log(profile);
 				profileID = profile.userId;
 			}
 		} catch (error) {
@@ -67,7 +67,7 @@
 					line_user_id: profileID
 				}
 			});
-			console.log(responseQR.data);
+			//console.log(responseQR.data);
 		} catch (error) {
 			console.log(error);
 		}
@@ -161,7 +161,7 @@
 				</thead>
 
 				<tbody class="divide-y divide-gray-200 bg-white">
-					{#each meterObj.logmeter.datarow as row, index}
+					{#each responseQR.logmeter.datarow as row, index}
 						<tr class="{index % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-red-50/50">
 							<td class="px-3 py-2 text-xs font-medium whitespace-nowrap text-gray-900">
 								{index + 1}
