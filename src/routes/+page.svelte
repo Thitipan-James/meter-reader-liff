@@ -58,7 +58,7 @@
 
 	async function getresultOfScan(stringifiedResult) {
 		try {
-			responseQR = await axios({
+			const response = await axios({
 				method: 'get',
 				url: 'https://rms.ssdapp.net/meter-bot',
 				params: {
@@ -67,7 +67,8 @@
 					line_user_id: profileID
 				}
 			});
-			//console.log(responseQR.data);
+			console.log(response.data);
+			responseQR = response.data;
 		} catch (error) {
 			console.log(error);
 		}
@@ -82,7 +83,7 @@
 	>
 		Scan QR Code
 	</button>
-	{#if responseQR}
+	{#if responseQR && responseQR.logmeter && responseQR.logmeter.datarow}
 		<div class="header mb-2 rounded-lg border-t-4 border-red-500 bg-white p-4 shadow-md">
 			<h2 class="mb-3 border-b pb-2 text-xl font-extrabold text-gray-800">
 				ข้อมูลมิเตอร์ (Meter Details)
