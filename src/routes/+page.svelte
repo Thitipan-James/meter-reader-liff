@@ -23,7 +23,7 @@
 			} else {
 				liffInitialized = true;
 				const profile = await liff.getProfile();
-				//console.log(profile);
+				console.log(profile);
 				profileID = profile.userId;
 			}
 		} catch (error) {
